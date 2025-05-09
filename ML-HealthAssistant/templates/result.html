@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            width: 75%;
+            text-align: center;
+            max-width: 1000px;
+            border: 5px solid #4CAF50; /* Border added */
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .result-card {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .result-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        .result-card p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            display: none;
+        }
+        .result-card.active p {
+            display: block;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Disease Prediction Result</h1>
+
+    <!-- Disease Information -->
+    <div class="result-card" onclick="toggleSection('disease')">
+        <h3>Predicted Disease: </h3>
+        <p id="disease">{{ disease }}</p>
+    </div>
+
+    <!-- Description Information -->
+    <div class="result-card" onclick="toggleSection('description')">
+        <h3>Description: </h3>
+        <p id="description">{{ description }}</p>
+    </div>
+
+    <!-- Precautions Section -->
+    <div class="result-card" onclick="toggleSection('precaution')">
+        <h3>Precautions: </h3>
+        <p id="precaution">{{ precaution }}</p>
+    </div>
+
+    <!-- Medications Section -->
+    <div class="result-card" onclick="toggleSection('medication')">
+        <h3>Medications: </h3>
+        <p id="medication">{{ medication }}</p>
+    </div>
+
+    <!-- Diet Recommendations Section -->
+    <div class="result-card" onclick="toggleSection('diet')">
+        <h3>Diet Recommendations: </h3>
+        <p id="diet">{{ diet }}</p>
+    </div>
+
+    <!-- Workout Suggestions Section -->
+    <div class="result-card" onclick="toggleSection('workout')">
+        <h3>Workout Suggestions: </h3>
+        <p id="workout">{{ workout }}</p>
+    </div>
+
+    <!-- Button to go back -->
+    <a href="/" class="btn">Go Back</a>
+</div>
+
+<script>
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const parentCard = section.parentElement;
+
+        // Toggle active class for showing/hiding content
+        parentCard.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
